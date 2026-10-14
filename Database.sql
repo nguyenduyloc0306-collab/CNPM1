@@ -26,8 +26,11 @@ IF NOT EXISTS (SELECT 1 FROM TaiKhoan WHERE TenDangNhap = 'kho')
     VALUES ('kho', @mk, N'Đoàn Minh Trọng', 4);
 
 IF NOT EXISTS (SELECT 1 FROM TaiKhoan WHERE TenDangNhap = 'khach')
-INSERT INTO TaiKhoan (TenDangNhap, MatKhau, HoTen, MaVaiTro)
-    VALUES ('khach', @mk, N'Lê Tín', 5);
+INSERT INTO TaiKhoan (TenDangNhap, MatKhau, HoTen, MaVaiTro, NgaySinh, SoDienThoai, DiaChi, Email)
+    VALUES ('khach', @mk, N'Lê Tín', 5, '11/6/1998', '0123456789', N'Số 1 Võ Văn Ngân', 'abc@gmail.com');
+
+SELECT * FROM TaiKhoan
+
 GO
 
 -- =========================================================

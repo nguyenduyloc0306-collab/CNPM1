@@ -270,8 +270,8 @@ END
 GO
  
 -- Kiểm tra sau khi khách thanh toán (MaTK = 4):
---   SELECT h.MaHoaDon, h.MaNhanVien, h.MaKhachHang, h.MaKhuyenMai, h.HinhThucThanhToan,
---          h.TongTienHang, h.TienGiamGia, h.TongThanhToan, h.TrangThai FROM HoaDon h WHERE h.MaKhachHang = 4;
---   SELECT * FROM ChiTietHoaDon WHERE MaHoaDon = (SELECT MAX(MaHoaDon) FROM HoaDon);
---   SELECT MaSP, SoLuongTon FROM SanPham;
---   SELECT * FROM GioHang WHERE MaKhachHang = 4;   -- phải trống
+/*SELECT h.MaHoaDon, h.MaNhanVien, h.MaKhachHang, h.MaKhuyenMai, h.HinhThucThanhToan,
+         h.TongTienHang, h.TienGiamGia, h.TongThanhToan, h.TrangThai FROM HoaDon h WHERE h.MaKhachHang = 4;
+SELECT * FROM ChiTietHoaDon WHERE MaHoaDon = (SELECT MAX(MaHoaDon) FROM HoaDon);
+SELECT MaSP, SoLuongTon FROM SanPham;
+SELECT * FROM GioHang WHERE MaKhachHang = 4; */  -- phải trống

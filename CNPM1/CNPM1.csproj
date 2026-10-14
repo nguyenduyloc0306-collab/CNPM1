@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BanHangMoiDAL.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="DbHelper.cs" />
     <Compile Include="frmBanHang.cs">
@@ -60,6 +61,12 @@
     </Compile>
     <Compile Include="frmBaocaoThongke.Designer.cs">
       <DependentUpon>frmBaocaoThongke.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChonSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChonSanPham.Designer.cs">
+      <DependentUpon>frmChonSanPham.cs</DependentUpon>
     </Compile>
     <Compile Include="frmChonSoLuong.cs">
       <SubType>Form</SubType>
@@ -184,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBaocaoThongke.resx">
       <DependentUpon>frmBaocaoThongke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChonSanPham.resx">
+      <DependentUpon>frmChonSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChonSoLuong.resx">
       <DependentUpon>frmChonSoLuong.cs</DependentUpon>

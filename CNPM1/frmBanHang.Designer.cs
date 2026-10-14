@@ -53,6 +53,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnChonSanPham = new System.Windows.Forms.Button();
+            this.btnXoaDong = new System.Windows.Forms.Button();
+            this.btnHoaDonMoi = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -130,6 +133,7 @@
             this.button3.TabIndex = 13;
             this.button3.Text = "Hoàn tất thanh toán";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label7
             // 
@@ -250,7 +254,11 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(294, 33);
             this.comboBox2.TabIndex = 23;
-            this.comboBox2.Text = "Tiền mặt";
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Tiền mặt",
+            "Chuyển khoản"});
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // textBox3
             // 
@@ -259,6 +267,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(292, 30);
             this.textBox3.TabIndex = 25;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label8
             // 
@@ -288,11 +297,47 @@
             this.label9.TabIndex = 26;
             this.label9.Text = "Thối lại";
             // 
+            // btnChonSanPham
+            // 
+            this.btnChonSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnChonSanPham.Location = new System.Drawing.Point(12, 3);
+            this.btnChonSanPham.Name = "btnChonSanPham";
+            this.btnChonSanPham.Size = new System.Drawing.Size(200, 37);
+            this.btnChonSanPham.TabIndex = 28;
+            this.btnChonSanPham.Text = "Chọn sản phẩm";
+            this.btnChonSanPham.UseVisualStyleBackColor = true;
+            this.btnChonSanPham.Click += new System.EventHandler(this.btnChonSanPham_Click);
+            // 
+            // btnXoaDong
+            // 
+            this.btnXoaDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnXoaDong.Location = new System.Drawing.Point(220, 3);
+            this.btnXoaDong.Name = "btnXoaDong";
+            this.btnXoaDong.Size = new System.Drawing.Size(130, 37);
+            this.btnXoaDong.TabIndex = 29;
+            this.btnXoaDong.Text = "Xóa dòng";
+            this.btnXoaDong.UseVisualStyleBackColor = true;
+            this.btnXoaDong.Click += new System.EventHandler(this.btnXoaDong_Click);
+            // 
+            // btnHoaDonMoi
+            // 
+            this.btnHoaDonMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnHoaDonMoi.Location = new System.Drawing.Point(358, 3);
+            this.btnHoaDonMoi.Name = "btnHoaDonMoi";
+            this.btnHoaDonMoi.Size = new System.Drawing.Size(150, 37);
+            this.btnHoaDonMoi.TabIndex = 30;
+            this.btnHoaDonMoi.Text = "Hóa đơn mới";
+            this.btnHoaDonMoi.UseVisualStyleBackColor = true;
+            this.btnHoaDonMoi.Click += new System.EventHandler(this.btnHoaDonMoi_Click);
+            // 
             // frmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1121, 674);
+            this.Controls.Add(this.btnHoaDonMoi);
+            this.Controls.Add(this.btnXoaDong);
+            this.Controls.Add(this.btnChonSanPham);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmBanHang";
@@ -332,5 +377,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnChonSanPham;
+        private System.Windows.Forms.Button btnXoaDong;
+        private System.Windows.Forms.Button btnHoaDonMoi;
     }
 }

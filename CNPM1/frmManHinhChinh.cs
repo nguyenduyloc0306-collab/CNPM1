@@ -67,7 +67,7 @@ namespace CNPM1
         // Quản lý bán hàng
         private void button6_Click(object sender, EventArgs e)
         {
-            frmBanHang f = new frmBanHang();
+            frmBanHang f = new frmBanHang(MaTK);
             f.ShowDialog();
         }
 
