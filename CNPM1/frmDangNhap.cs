@@ -27,7 +27,11 @@ namespace CNPM1
                 return;
             }
 
-            Form frm;
+			User.MaTK = (int)user["MaTK"];
+			User.HoTen = (string)user["HoTen"];
+			User.TenVaiTro = (string)user["TenVaiTro"];
+
+			Form frm;
             switch ((int)user["MaVaiTro"])
             {
                 case 2: // Quản lý cửa hàng
