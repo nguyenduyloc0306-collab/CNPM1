@@ -83,6 +83,7 @@ namespace CNPM1
         }
     }
 
+
     // ------------------------------------------------------------------
     // QLDM - Danh mục
     // ------------------------------------------------------------------
@@ -119,6 +120,35 @@ namespace CNPM1
         {
             return DbHelper.ExecuteNonQuery("UPDATE DanhMuc SET TrangThai = 0 WHERE MaDanhMuc = @id",
                 DbHelper.Param("@id", ma));
+        }
+        /// <summary>Sản phẩm đang bán thuộc một danh mục.</summary>
+        public static DataTable SanPhamTheoDanhMuc(int maDanhMuc)
+        {
+            return DbHelper.ExecuteQuery(
+                @"SELECT MaSP, TenSP, GiaBan, SoLuongTon
+          FROM SanPham
+          WHERE MaDanhMuc = @id AND TrangThai = 1
+          ORDER BY MaSP",
+                DbHelper.Param("@id", maDanhMuc));
+        }
+
+        /// <summary>Số sản phẩm đang bán thuộc danh mục.</summary>
+        public static int DemSanPham(int maDanhMuc)
+        {
+            object o = DbHelper.ExecuteScalar(
+                "SELECT COUNT(*) FROM SanPham WHERE MaDanhMuc = @id AND TrangThai = 1",
+                DbHelper.Param("@id", maDanhMuc));
+            return Convert.ToInt32(o);
+        }
+
+        /// <summary>Kiểm tra tên đã có ở danh mục khác (đang hoạt động) chưa. loaiTruMa = -1 khi thêm mới.</summary>
+        public static bool TrungTen(string ten, int loaiTruMa)
+        {
+            object o = DbHelper.ExecuteScalar(
+                @"SELECT COUNT(*) FROM DanhMuc
+          WHERE TrangThai = 1 AND TenDanhMuc = @t AND MaDanhMuc <> @id",
+                DbHelper.Param("@t", ten), DbHelper.Param("@id", loaiTruMa));
+            return Convert.ToInt32(o) > 0;
         }
     }
 
@@ -228,6 +258,13 @@ namespace CNPM1
         {
             return DbHelper.ExecuteNonQuery("UPDATE SanPham SET TrangThai = 0 WHERE MaSP = @id",
                 DbHelper.Param("@id", maSP));
+        }
+        /// <summary>Giá nhập hiện tại của sản phẩm (hiển thị khi xem thông tin).</summary>
+        public static decimal LayGiaNhap(int maSP)
+        {
+            object o = DbHelper.ExecuteScalar("SELECT GiaNhap FROM SanPham WHERE MaSP = @id",
+                DbHelper.Param("@id", maSP));
+            return (o == null || o == DBNull.Value) ? 0 : Convert.ToDecimal(o);
         }
     }
 
