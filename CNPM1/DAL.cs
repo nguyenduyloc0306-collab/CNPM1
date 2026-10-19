@@ -123,56 +123,6 @@ namespace CNPM1
     }
 
     // ------------------------------------------------------------------
-    // QLNCC - Nhà cung cấp
-    // Lưu ý: bảng NhaCungCap KHÔNG có cột số điện thoại; ô "Số điện thoại" trên form
-    // được lưu vào cột ThongTinLienHe.
-    // ------------------------------------------------------------------
-    public static class NhaCungCapDAL
-    {
-        // Cột: MaNCC, TenNCC, DiaChi, ThongTinLienHe
-        public static DataTable TimKiem(string tuKhoa)
-        {
-            return DbHelper.ExecuteQuery(
-                @"SELECT MaNCC, TenNCC, DiaChi, ThongTinLienHe FROM NhaCungCap
-                  WHERE TrangThai = 1
-                    AND (CAST(MaNCC AS VARCHAR(10)) LIKE @k OR TenNCC LIKE @k)
-                  ORDER BY MaNCC",
-                DbHelper.Param("@k", "%" + (tuKhoa ?? "") + "%"));
-        }
-
-        public static int Them(string ten, string diaChi, string lienHe)
-        {
-            object id = DbHelper.ExecuteScalar(
-                @"INSERT INTO NhaCungCap (TenNCC, DiaChi, ThongTinLienHe) VALUES (@t, @d, @l);
-                  SELECT CAST(SCOPE_IDENTITY() AS INT);",
-                DbHelper.Param("@t", ten), DbHelper.Param("@d", diaChi), DbHelper.Param("@l", lienHe));
-            return Convert.ToInt32(id);
-        }
-
-        public static int Sua(int ma, string ten, string diaChi, string lienHe)
-        {
-            return DbHelper.ExecuteNonQuery(
-                "UPDATE NhaCungCap SET TenNCC=@t, DiaChi=@d, ThongTinLienHe=@l WHERE MaNCC=@id",
-                DbHelper.Param("@t", ten), DbHelper.Param("@d", diaChi),
-                DbHelper.Param("@l", lienHe), DbHelper.Param("@id", ma));
-        }
-
-        public static int Khoa(int ma)
-        {
-            return DbHelper.ExecuteNonQuery("UPDATE NhaCungCap SET TrangThai = 0 WHERE MaNCC = @id",
-                DbHelper.Param("@id", ma));
-        }
-
-        /// <summary>Mã các sản phẩm NCC đang cung cấp (cho comboBox1 trên frmNhaCungCap).</summary>
-        public static DataTable LaySanPhamCuaNCC(int maNCC)
-        {
-            return DbHelper.ExecuteQuery(
-                "SELECT MaSP FROM NhaCungCap_SanPham WHERE MaNCC = @id AND TrangThai = 1 ORDER BY MaSP",
-                DbHelper.Param("@id", maNCC));
-        }
-    }
-
-    // ------------------------------------------------------------------
     // QLSP - Sản phẩm
     // ------------------------------------------------------------------
     public static class SanPhamDAL

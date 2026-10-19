@@ -62,5 +62,25 @@ namespace CNPM1
             textBox6.Text = Convert.ToDecimal(r["GiaGoc"]).ToString("N0");
             textBox7.Text = r["MucGiam"].ToString();
         }
-    }
+
+		private void textBox4_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label5_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label7_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void textBox6_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

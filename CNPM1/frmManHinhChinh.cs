@@ -91,5 +91,10 @@ namespace CNPM1
             frmBaocaoThongke f = new frmBaocaoThongke();
             f.ShowDialog();
         }
-    }
+
+		private void frmManHinhChinh_Load(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

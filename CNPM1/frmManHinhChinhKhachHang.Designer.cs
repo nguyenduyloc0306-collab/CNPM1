@@ -1,4 +1,4 @@
-﻿namespace CNPM1
+namespace CNPM1
 {
     partial class frmManHinhChinhKhachHang
     {
@@ -28,108 +28,141 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(318, 156);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 31);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Chào mừng!";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(457, 240);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(267, 31);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Các chức năng chính";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
-            this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(277, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(663, 54);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Cửa hàng gia dụng Minh Trọng";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.button1.Location = new System.Drawing.Point(12, 310);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(223, 109);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Mua hàng";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.button2.Location = new System.Drawing.Point(241, 310);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(223, 109);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "Lịch sử mua hàng";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.button3.Location = new System.Drawing.Point(470, 310);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(223, 109);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "Giỏ hàng";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.button4.Location = new System.Drawing.Point(699, 310);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(223, 109);
-            this.button4.TabIndex = 24;
-            this.button4.Text = "Thông tin tải khoản";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // frmManHinhChinhKhachHang
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1188, 576);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Name = "frmManHinhChinhKhachHang";
-            this.Text = "frmManHinhChinhKhachHang";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
+			this.button3 = new System.Windows.Forms.Button();
+			this.button4 = new System.Windows.Forms.Button();
+			this.SuspendLayout();
+			// 
+			// label3
+			// 
+			this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label3.Font = new System.Drawing.Font("Segoe UI", 11F);
+			this.label3.ForeColor = System.Drawing.Color.Red;
+			this.label3.Location = new System.Drawing.Point(51, 75);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(767, 25);
+			this.label3.TabIndex = 20;
+			this.label3.Text = "Kính chào Quý khách! Chúc Quý khách có trải nghiệm mua sắm tuyệt vời.";
+			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// label1
+			// 
+			this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+			this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+			this.label1.Location = new System.Drawing.Point(66, 178);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(102, 21);
+			this.label1.TabIndex = 14;
+			this.label1.Text = "Các tiện ích:";
+			// 
+			// label2
+			// 
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+			this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
+			this.label2.Location = new System.Drawing.Point(44, 30);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(774, 45);
+			this.label2.TabIndex = 13;
+			this.label2.Text = "CỬA HÀNG GIA DỤNG MINH TRỌNG";
+			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// button1
+			// 
+			this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+			this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(254)))));
+			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.button1.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Bold);
+			this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
+			this.button1.Location = new System.Drawing.Point(173, 217);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(220, 115);
+			this.button1.TabIndex = 21;
+			this.button1.Text = "🛍️\r\nMua hàng";
+			this.button1.UseVisualStyleBackColor = false;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// button2
+			// 
+			this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(253)))), ((int)(((byte)(244)))));
+			this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(247)))), ((int)(((byte)(208)))));
+			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.button2.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Bold);
+			this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(128)))), ((int)(((byte)(61)))));
+			this.button2.Location = new System.Drawing.Point(173, 369);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(220, 115);
+			this.button2.TabIndex = 22;
+			this.button2.Text = "📜\r\nLịch sử mua";
+			this.button2.UseVisualStyleBackColor = false;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// button3
+			// 
+			this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(243)))), ((int)(((byte)(199)))));
+			this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(230)))), ((int)(((byte)(138)))));
+			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.button3.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Bold);
+			this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(83)))), ((int)(((byte)(9)))));
+			this.button3.Location = new System.Drawing.Point(491, 217);
+			this.button3.Name = "button3";
+			this.button3.Size = new System.Drawing.Size(220, 115);
+			this.button3.TabIndex = 23;
+			this.button3.Text = "🛒\r\nGiỏ hàng";
+			this.button3.UseVisualStyleBackColor = false;
+			this.button3.Click += new System.EventHandler(this.button3_Click);
+			// 
+			// button4
+			// 
+			this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+			this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(214)))), ((int)(((byte)(254)))));
+			this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.button4.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Bold);
+			this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(40)))), ((int)(((byte)(217)))));
+			this.button4.Location = new System.Drawing.Point(491, 369);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(220, 115);
+			this.button4.TabIndex = 24;
+			this.button4.Text = "👤\r\nTài khoản";
+			this.button4.UseVisualStyleBackColor = false;
+			this.button4.Click += new System.EventHandler(this.button4_Click);
+			// 
+			// frmManHinhChinhKhachHang
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.LightSteelBlue;
+			this.ClientSize = new System.Drawing.Size(874, 541);
+			this.Controls.Add(this.button4);
+			this.Controls.Add(this.button3);
+			this.Controls.Add(this.button2);
+			this.Controls.Add(this.button1);
+			this.Controls.Add(this.label3);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.label2);
+			this.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Margin = new System.Windows.Forms.Padding(4);
+			this.MaximizeBox = false;
+			this.Name = "frmManHinhChinhKhachHang";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Khu vực Khách Hàng";
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
