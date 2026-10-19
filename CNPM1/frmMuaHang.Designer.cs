@@ -30,6 +30,7 @@
         {
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.textBox8 = new System.Windows.Forms.TextBox();
 			this.label9 = new System.Windows.Forms.Label();
 			this.textBox6 = new System.Windows.Forms.TextBox();
@@ -166,6 +167,7 @@
 			// 
 			// panel1
 			// 
+			this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.panel1.BackColor = System.Drawing.Color.White;
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel1.Controls.Add(this.button4);
@@ -178,7 +180,7 @@
 			this.panel1.Controls.Add(this.label7);
 			this.panel1.Controls.Add(this.label6);
 			this.panel1.Controls.Add(this.label4);
-			this.panel1.Location = new System.Drawing.Point(743, 14);
+			this.panel1.Location = new System.Drawing.Point(773, 14);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(332, 598);
 			this.panel1.TabIndex = 6;
@@ -201,15 +203,20 @@
 			// panel2
 			// 
 			this.panel2.Controls.Add(this.dataGridView1);
-			this.panel2.Location = new System.Drawing.Point(4, 143);
+			this.panel2.Location = new System.Drawing.Point(27, 143);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(730, 469);
 			this.panel2.TabIndex = 7;
 			// 
 			// dataGridView1
 			// 
+			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToDeleteRows = false;
+			this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+			this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+			this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -218,7 +225,8 @@
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
 			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.ColumnHeadersHeight = 38;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colTenSP,
             this.colDonGia,
@@ -231,8 +239,20 @@
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+			this.dataGridView1.EnableHeadersVisualStyles = false;
+			this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
 			this.dataGridView1.Location = new System.Drawing.Point(0, 0);
 			this.dataGridView1.Name = "dataGridView1";
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			this.dataGridView1.RowHeadersVisible = false;
+			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridView1.Size = new System.Drawing.Size(730, 469);
 			this.dataGridView1.TabIndex = 0;
 			this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
@@ -311,6 +331,7 @@
 			// 
 			// panel3
 			// 
+			this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.panel3.BackColor = System.Drawing.Color.White;
 			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel3.Controls.Add(this.textBox9);
@@ -322,7 +343,7 @@
 			this.panel3.Controls.Add(this.label3);
 			this.panel3.Controls.Add(this.label1);
 			this.panel3.Controls.Add(this.textBox1);
-			this.panel3.Location = new System.Drawing.Point(4, 14);
+			this.panel3.Location = new System.Drawing.Point(27, 14);
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(730, 114);
 			this.panel3.TabIndex = 8;
@@ -372,10 +393,10 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.LightSteelBlue;
-			this.ClientSize = new System.Drawing.Size(1087, 624);
-			this.Controls.Add(this.panel1);
+			this.ClientSize = new System.Drawing.Size(1133, 624);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel3);
+			this.Controls.Add(this.panel1);
 			this.Name = "frmMuaHang";
 			this.Text = "Mua hàng";
 			this.Load += new System.EventHandler(this.frmMuaHang_Load);

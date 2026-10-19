@@ -69,6 +69,7 @@ namespace CNPM1
 			// panel3
 			// 
 			this.panel3.BackColor = System.Drawing.Color.White;
+			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel3.Controls.Add(this.comboBox2);
 			this.panel3.Controls.Add(this.label9);
 			this.panel3.Controls.Add(this.textBox3);
@@ -171,7 +172,6 @@ namespace CNPM1
 			this.dataGridView1.AllowUserToAddRows = false;
 			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-			this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
 			this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -191,7 +191,7 @@ namespace CNPM1
             this.colVaiTro});
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(231)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
@@ -236,6 +236,7 @@ namespace CNPM1
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.Color.White;
+			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel1.Controls.Add(this.button4);
 			this.panel1.Controls.Add(this.button3);
 			this.panel1.Controls.Add(this.button2);
@@ -268,7 +269,7 @@ namespace CNPM1
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(300, 42);
 			this.button4.TabIndex = 14;
-			this.button4.Text = "🗑️ Xóa Tài Khoản";
+			this.button4.Text = "Xóa Tài Khoản";
 			this.button4.UseVisualStyleBackColor = false;
 			// 
 			// button3
@@ -283,7 +284,7 @@ namespace CNPM1
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(300, 42);
 			this.button3.TabIndex = 13;
-			this.button3.Text = "💾 Lưu Thay Đổi";
+			this.button3.Text = "Lưu Thay Đổi";
 			this.button3.UseVisualStyleBackColor = false;
 			// 
 			// button2
@@ -411,12 +412,13 @@ namespace CNPM1
 			this.label4.Size = new System.Drawing.Size(305, 30);
 			this.label4.TabIndex = 8;
 			this.label4.Text = "Thông tin tài khoản";
+			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// frmQuanLyTaiKhoan
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+			this.BackColor = System.Drawing.Color.LightSteelBlue;
 			this.ClientSize = new System.Drawing.Size(1180, 680);
 			this.Controls.Add(this.panel3);
 			this.Controls.Add(this.panel2);

@@ -182,48 +182,6 @@ namespace CNPM1
     }
 
     // ------------------------------------------------------------------
-    // QLKH - Kho hàng (frmQuanLyKho)
-    // ------------------------------------------------------------------
-    public static class KhoDAL
-    {
-        // Cột: MaSP, TenSP, TenDanhMuc, SoLuongTon, MucTonToiThieu
-        public static DataTable TimKiem(string tuKhoa)
-        {
-            return DbHelper.ExecuteQuery(
-                @"SELECT s.MaSP, s.TenSP, d.TenDanhMuc, s.SoLuongTon, s.MucTonToiThieu
-                  FROM SanPham s JOIN DanhMuc d ON d.MaDanhMuc = s.MaDanhMuc
-                  WHERE s.TrangThai = 1
-                    AND (CAST(s.MaSP AS VARCHAR(10)) LIKE @k OR s.TenSP LIKE @k)
-                  ORDER BY s.MaSP",
-                DbHelper.Param("@k", "%" + (tuKhoa ?? "") + "%"));
-        }
-
-        /// <summary>Kiểm kê: đặt tồn kho theo số thực tế và ghi lịch sử điều chỉnh (cùng một transaction).</summary>
-        public static void DieuChinhTon(int maSP, int maNhanVienKho, int soLuongThucTe, string lyDo)
-        {
-            DbHelper.ExecuteTransaction((conn, tran) =>
-            {
-                // UPDLOCK để không bị thay đổi giữa lúc đọc và ghi
-                object cu = DbHelper.ExecuteScalar(conn, tran,
-                    "SELECT SoLuongTon FROM SanPham WITH (UPDLOCK) WHERE MaSP = @sp",
-                    DbHelper.Param("@sp", maSP));
-                if (cu == null) throw new InvalidOperationException("Không tìm thấy sản phẩm.");
-
-                DbHelper.ExecuteNonQuery(conn, tran,
-                    @"INSERT INTO LichSuDieuChinhTonKho (MaSP, MaNhanVienKho, SoLuongHeThong, SoLuongThucTe, LyDo)
-                      VALUES (@sp, @nv, @ht, @tt, @ld)",
-                    DbHelper.Param("@sp", maSP), DbHelper.Param("@nv", maNhanVienKho),
-                    DbHelper.Param("@ht", Convert.ToInt32(cu)), DbHelper.Param("@tt", soLuongThucTe),
-                    DbHelper.Param("@ld", lyDo));
-
-                DbHelper.ExecuteNonQuery(conn, tran,
-                    "UPDATE SanPham SET SoLuongTon = @tt WHERE MaSP = @sp",
-                    DbHelper.Param("@tt", soLuongThucTe), DbHelper.Param("@sp", maSP));
-            });
-        }
-    }
-
-    // ------------------------------------------------------------------
     // QLBH - Bán hàng
     // ------------------------------------------------------------------
     public class DongHoaDon

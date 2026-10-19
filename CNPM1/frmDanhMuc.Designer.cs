@@ -64,7 +64,7 @@ namespace CNPM1
 			this.panel3.Controls.Add(this.button1);
 			this.panel3.Controls.Add(this.label1);
 			this.panel3.Controls.Add(this.textBox1);
-			this.panel3.Location = new System.Drawing.Point(3, 28);
+			this.panel3.Location = new System.Drawing.Point(24, 28);
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(730, 78);
 			this.panel3.TabIndex = 5;
@@ -108,7 +108,7 @@ namespace CNPM1
 			// panel2
 			// 
 			this.panel2.Controls.Add(this.dataGridView1);
-			this.panel2.Location = new System.Drawing.Point(3, 112);
+			this.panel2.Location = new System.Drawing.Point(24, 112);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(730, 514);
 			this.panel2.TabIndex = 4;
@@ -116,10 +116,12 @@ namespace CNPM1
 			// dataGridView1
 			// 
 			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToDeleteRows = false;
 			this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
 			this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+			this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -128,7 +130,8 @@ namespace CNPM1
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
 			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.ColumnHeadersHeight = 38;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
             this.colTenDanhMuc,
@@ -145,6 +148,7 @@ namespace CNPM1
 			this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
 			this.dataGridView1.Location = new System.Drawing.Point(0, 0);
 			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.RowHeadersVisible = false;
 			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridView1.Size = new System.Drawing.Size(730, 514);
 			this.dataGridView1.TabIndex = 0;
@@ -179,7 +183,7 @@ namespace CNPM1
 			this.panel1.Controls.Add(this.label6);
 			this.panel1.Controls.Add(this.label5);
 			this.panel1.Controls.Add(this.label4);
-			this.panel1.Location = new System.Drawing.Point(739, 28);
+			this.panel1.Location = new System.Drawing.Point(769, 28);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(335, 598);
 			this.panel1.TabIndex = 3;
@@ -295,7 +299,7 @@ namespace CNPM1
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
 			this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-			this.label4.Location = new System.Drawing.Point(40, 15);
+			this.label4.Location = new System.Drawing.Point(30, 15);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(273, 37);
 			this.label4.TabIndex = 8;
@@ -307,7 +311,7 @@ namespace CNPM1
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.LightSteelBlue;
-			this.ClientSize = new System.Drawing.Size(1084, 652);
+			this.ClientSize = new System.Drawing.Size(1126, 652);
 			this.Controls.Add(this.panel3);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
