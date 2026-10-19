@@ -28,131 +28,223 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.lblTieuDe = new System.Windows.Forms.Label();
+            this.lblHoTen = new System.Windows.Forms.Label();
+            this.txtHoTen = new System.Windows.Forms.TextBox();
+            this.lblTaiKhoan = new System.Windows.Forms.Label();
+            this.txtTaiKhoan = new System.Windows.Forms.TextBox();
+            this.lblNgaySinh = new System.Windows.Forms.Label();
+            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.lblSoDienThoai = new System.Windows.Forms.Label();
+            this.txtSoDienThoai = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.lblDiaChi = new System.Windows.Forms.Label();
+            this.txtDiaChi = new System.Windows.Forms.TextBox();
+            this.lblMatKhau = new System.Windows.Forms.Label();
+            this.txtMatKhau = new System.Windows.Forms.TextBox();
+            this.lblNhapLai = new System.Windows.Forms.Label();
+            this.txtNhapLai = new System.Windows.Forms.TextBox();
+            this.btnDangKy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // lblTieuDe
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.button1.Location = new System.Drawing.Point(386, 433);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(215, 85);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Đăng ký";
-            this.button1.UseVisualStyleBackColor = true;
+            this.lblTieuDe.AutoSize = true;
+            this.lblTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
+            this.lblTieuDe.ForeColor = System.Drawing.Color.Blue;
+            this.lblTieuDe.Location = new System.Drawing.Point(179, 45);
+            this.lblTieuDe.Name = "lblTieuDe";
+            this.lblTieuDe.Size = new System.Drawing.Size(663, 54);
+            this.lblTieuDe.TabIndex = 16;
+            this.lblTieuDe.Text = "Cửa hàng gia dụng Minh Trọng";
             // 
-            // label4
+            // lblHoTen
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
-            this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(179, 68);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(663, 54);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Cửa hàng gia dụng Minh Trọng";
+            this.lblHoTen.AutoSize = true;
+            this.lblHoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblHoTen.Location = new System.Drawing.Point(215, 152);
+            this.lblHoTen.Name = "lblHoTen";
+            this.lblHoTen.Size = new System.Drawing.Size(120, 26);
+            this.lblHoTen.TabIndex = 0;
+            this.lblHoTen.Text = "Họ và tên";
             // 
-            // textBox1
+            // txtHoTen
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.textBox1.Location = new System.Drawing.Point(512, 227);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 30);
-            this.textBox1.TabIndex = 19;
+            this.txtHoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtHoTen.Location = new System.Drawing.Point(512, 150);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.Size = new System.Drawing.Size(300, 29);
+            this.txtHoTen.TabIndex = 1;
             // 
-            // label2
+            // lblTaiKhoan
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.label2.Location = new System.Drawing.Point(215, 291);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 39);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Mật khẩu";
+            this.lblTaiKhoan.AutoSize = true;
+            this.lblTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblTaiKhoan.Location = new System.Drawing.Point(215, 200);
+            this.lblTaiKhoan.Name = "lblTaiKhoan";
+            this.lblTaiKhoan.Size = new System.Drawing.Size(120, 26);
+            this.lblTaiKhoan.TabIndex = 2;
+            this.lblTaiKhoan.Text = "Tài khoản";
             // 
-            // label1
+            // txtTaiKhoan
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.label1.Location = new System.Drawing.Point(215, 218);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 39);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Tài khoản";
+            this.txtTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtTaiKhoan.Location = new System.Drawing.Point(512, 198);
+            this.txtTaiKhoan.Name = "txtTaiKhoan";
+            this.txtTaiKhoan.Size = new System.Drawing.Size(300, 29);
+            this.txtTaiKhoan.TabIndex = 3;
             // 
-            // textBox3
+            // lblNgaySinh
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.textBox3.Location = new System.Drawing.Point(512, 163);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(300, 30);
-            this.textBox3.TabIndex = 25;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.lblNgaySinh.AutoSize = true;
+            this.lblNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblNgaySinh.Location = new System.Drawing.Point(215, 248);
+            this.lblNgaySinh.Name = "lblNgaySinh";
+            this.lblNgaySinh.Size = new System.Drawing.Size(120, 26);
+            this.lblNgaySinh.TabIndex = 4;
+            this.lblNgaySinh.Text = "Ngày sinh";
             // 
-            // label3
+            // dtpNgaySinh
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.label3.Location = new System.Drawing.Point(215, 154);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 39);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Họ và tên";
+            this.dtpNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgaySinh.Location = new System.Drawing.Point(512, 246);
+            this.dtpNgaySinh.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dtpNgaySinh.Name = "dtpNgaySinh";
+            this.dtpNgaySinh.Size = new System.Drawing.Size(300, 29);
+            this.dtpNgaySinh.TabIndex = 5;
             // 
-            // label5
+            // lblSoDienThoai
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.label5.Location = new System.Drawing.Point(215, 362);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(291, 39);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Nhập lại mật khẩu";
+            this.lblSoDienThoai.AutoSize = true;
+            this.lblSoDienThoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblSoDienThoai.Location = new System.Drawing.Point(215, 296);
+            this.lblSoDienThoai.Name = "lblSoDienThoai";
+            this.lblSoDienThoai.Size = new System.Drawing.Size(120, 26);
+            this.lblSoDienThoai.TabIndex = 6;
+            this.lblSoDienThoai.Text = "Số điện thoại";
             // 
-            // textBox2
+            // txtSoDienThoai
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.textBox2.Location = new System.Drawing.Point(512, 300);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 30);
-            this.textBox2.TabIndex = 28;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.txtSoDienThoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtSoDienThoai.Location = new System.Drawing.Point(512, 294);
+            this.txtSoDienThoai.Name = "txtSoDienThoai";
+            this.txtSoDienThoai.Size = new System.Drawing.Size(300, 29);
+            this.txtSoDienThoai.TabIndex = 7;
             // 
-            // textBox4
+            // lblEmail
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.textBox4.Location = new System.Drawing.Point(512, 362);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(300, 30);
-            this.textBox4.TabIndex = 29;
-            this.textBox4.UseSystemPasswordChar = true;
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblEmail.Location = new System.Drawing.Point(215, 344);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(120, 26);
+            this.lblEmail.TabIndex = 8;
+            this.lblEmail.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtEmail.Location = new System.Drawing.Point(512, 342);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(300, 29);
+            this.txtEmail.TabIndex = 9;
+            // 
+            // lblDiaChi
+            // 
+            this.lblDiaChi.AutoSize = true;
+            this.lblDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblDiaChi.Location = new System.Drawing.Point(215, 392);
+            this.lblDiaChi.Name = "lblDiaChi";
+            this.lblDiaChi.Size = new System.Drawing.Size(120, 26);
+            this.lblDiaChi.TabIndex = 10;
+            this.lblDiaChi.Text = "Địa chỉ";
+            // 
+            // txtDiaChi
+            // 
+            this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtDiaChi.Location = new System.Drawing.Point(512, 390);
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Size = new System.Drawing.Size(300, 29);
+            this.txtDiaChi.TabIndex = 11;
+            // 
+            // lblMatKhau
+            // 
+            this.lblMatKhau.AutoSize = true;
+            this.lblMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblMatKhau.Location = new System.Drawing.Point(215, 440);
+            this.lblMatKhau.Name = "lblMatKhau";
+            this.lblMatKhau.Size = new System.Drawing.Size(120, 26);
+            this.lblMatKhau.TabIndex = 12;
+            this.lblMatKhau.Text = "Mật khẩu";
+            // 
+            // txtMatKhau
+            // 
+            this.txtMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtMatKhau.Location = new System.Drawing.Point(512, 438);
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.Size = new System.Drawing.Size(300, 29);
+            this.txtMatKhau.TabIndex = 13;
+            this.txtMatKhau.UseSystemPasswordChar = true;
+            // 
+            // lblNhapLai
+            // 
+            this.lblNhapLai.AutoSize = true;
+            this.lblNhapLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblNhapLai.Location = new System.Drawing.Point(215, 488);
+            this.lblNhapLai.Name = "lblNhapLai";
+            this.lblNhapLai.Size = new System.Drawing.Size(120, 26);
+            this.lblNhapLai.TabIndex = 14;
+            this.lblNhapLai.Text = "Nhập lại mật khẩu";
+            // 
+            // txtNhapLai
+            // 
+            this.txtNhapLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txtNhapLai.Location = new System.Drawing.Point(512, 486);
+            this.txtNhapLai.Name = "txtNhapLai";
+            this.txtNhapLai.Size = new System.Drawing.Size(300, 29);
+            this.txtNhapLai.TabIndex = 15;
+            this.txtNhapLai.UseSystemPasswordChar = true;
+            // 
+            // btnDangKy
+            // 
+            this.btnDangKy.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.btnDangKy.Location = new System.Drawing.Point(386, 545);
+            this.btnDangKy.Name = "btnDangKy";
+            this.btnDangKy.Size = new System.Drawing.Size(215, 60);
+            this.btnDangKy.TabIndex = 17;
+            this.btnDangKy.Text = "Đăng ký";
+            this.btnDangKy.UseVisualStyleBackColor = true;
+            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
             // 
             // frmDangKyKhachHang
             // 
+            this.AcceptButton = this.btnDangKy;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 570);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1034, 640);
+            this.Controls.Add(this.btnDangKy);
+            this.Controls.Add(this.lblHoTen);
+            this.Controls.Add(this.txtHoTen);
+            this.Controls.Add(this.lblTaiKhoan);
+            this.Controls.Add(this.txtTaiKhoan);
+            this.Controls.Add(this.lblNgaySinh);
+            this.Controls.Add(this.dtpNgaySinh);
+            this.Controls.Add(this.lblSoDienThoai);
+            this.Controls.Add(this.txtSoDienThoai);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.lblDiaChi);
+            this.Controls.Add(this.txtDiaChi);
+            this.Controls.Add(this.lblMatKhau);
+            this.Controls.Add(this.txtMatKhau);
+            this.Controls.Add(this.lblNhapLai);
+            this.Controls.Add(this.txtNhapLai);
+            this.Controls.Add(this.lblTieuDe);
             this.Name = "frmDangKyKhachHang";
-            this.Text = "frmDangKyKhachHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Đăng ký khách hàng";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,15 +252,23 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label lblTieuDe;
+        private System.Windows.Forms.Label lblHoTen;
+        private System.Windows.Forms.TextBox txtHoTen;
+        private System.Windows.Forms.Label lblTaiKhoan;
+        private System.Windows.Forms.TextBox txtTaiKhoan;
+        private System.Windows.Forms.Label lblNgaySinh;
+        private System.Windows.Forms.DateTimePicker dtpNgaySinh;
+        private System.Windows.Forms.Label lblSoDienThoai;
+        private System.Windows.Forms.TextBox txtSoDienThoai;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label lblDiaChi;
+        private System.Windows.Forms.TextBox txtDiaChi;
+        private System.Windows.Forms.Label lblMatKhau;
+        private System.Windows.Forms.TextBox txtMatKhau;
+        private System.Windows.Forms.Label lblNhapLai;
+        private System.Windows.Forms.TextBox txtNhapLai;
+        private System.Windows.Forms.Button btnDangKy;
     }
 }
