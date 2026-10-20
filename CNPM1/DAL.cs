@@ -324,29 +324,130 @@ namespace CNPM1
     }
     public static class KhuyenMaiDAL
     {
+        private static string ThoatLike(string s)
+        {
+            return (s ?? "").Replace("[", "[[]").Replace("%", "[%]").Replace("_", "[_]");
+        }
+
+        // ----- Giữ nguyên: sản phẩm kèm giá sau khi giảm (khuyến mãi đang hiệu lực tốt nhất) -----
         public static DataTable SanPhamKhuyenMai()
         {
             return DbHelper.ExecuteQuery(
                 @"SELECT s.MaSP, s.TenSP, s.GiaBan AS GiaGoc,
-                 CASE WHEN k.MaKhuyenMai IS NULL THEN N'Không có'
-                      WHEN k.LoaiGiam = N'PhanTram' THEN FORMAT(k.GiaTriGiam, '0.##') + N'%'
-                      ELSE FORMAT(k.GiaTriGiam, 'N0') END AS MucGiam,
-                 CASE WHEN k.MaKhuyenMai IS NULL THEN s.GiaBan
-                      WHEN k.LoaiGiam = N'PhanTram' THEN s.GiaBan * (100 - k.GiaTriGiam) / 100
-                      WHEN s.GiaBan - k.GiaTriGiam < 0 THEN 0
-                      ELSE s.GiaBan - k.GiaTriGiam END AS GiaDaGiam
-          FROM SanPham s
-          OUTER APPLY (
-              SELECT TOP 1 km.MaKhuyenMai, km.LoaiGiam, km.GiaTriGiam
-              FROM KhuyenMai km
-              WHERE km.TrangThai = 1
-                AND CAST(GETDATE() AS DATE) BETWEEN CAST(km.NgayBatDau AS DATE)
-                                                AND CAST(km.NgayKetThuc AS DATE)
-              ORDER BY CASE km.LoaiGiam WHEN N'PhanTram' THEN s.GiaBan * km.GiaTriGiam / 100
-                                        ELSE km.GiaTriGiam END DESC
-          ) k
-          WHERE s.TrangThai = 1
-          ORDER BY s.MaSP");
+             CASE WHEN k.MaKhuyenMai IS NULL THEN N'Không có'
+                  WHEN k.LoaiGiam = N'PhanTram' THEN FORMAT(k.GiaTriGiam, '0.##') + N'%'
+                  ELSE FORMAT(k.GiaTriGiam, 'N0') END AS MucGiam,
+             CASE WHEN k.MaKhuyenMai IS NULL THEN s.GiaBan
+                  WHEN k.LoaiGiam = N'PhanTram' THEN s.GiaBan * (100 - k.GiaTriGiam) / 100
+                  WHEN s.GiaBan - k.GiaTriGiam < 0 THEN 0
+                  ELSE s.GiaBan - k.GiaTriGiam END AS GiaDaGiam
+      FROM SanPham s
+      OUTER APPLY (
+          SELECT TOP 1 km.MaKhuyenMai, km.LoaiGiam, km.GiaTriGiam
+          FROM KhuyenMai km
+          WHERE km.TrangThai = 1
+            AND CAST(GETDATE() AS DATE) BETWEEN CAST(km.NgayBatDau AS DATE)
+                                            AND CAST(km.NgayKetThuc AS DATE)
+          ORDER BY CASE km.LoaiGiam WHEN N'PhanTram' THEN s.GiaBan * km.GiaTriGiam / 100
+                                    ELSE km.GiaTriGiam END DESC
+      ) k
+      WHERE s.TrangThai = 1
+      ORDER BY s.MaSP");
+        }
+
+        /// <summary>Danh sách khuyến mãi chưa bị ngừng, tìm theo mã hoặc tên.</summary>
+        public static DataTable TimKiem(string tuKhoa)
+        {
+            return DbHelper.ExecuteQuery(
+                @"SELECT MaKhuyenMai, TenKhuyenMai, LoaiGiam, GiaTriGiam,
+                     CASE WHEN LoaiGiam = N'PhanTram' THEN FORMAT(GiaTriGiam, '0.##') + N'%'
+                          ELSE FORMAT(GiaTriGiam, 'N0') + N' đ' END AS MucGiam,
+                     NgayBatDau, NgayKetThuc,
+                     CONVERT(NVARCHAR(10), NgayBatDau, 103) + N' - ' + CONVERT(NVARCHAR(10), NgayKetThuc, 103) AS ThoiGian,
+                     DieuKienApDung, MoTa,
+                     CASE WHEN CAST(GETDATE() AS DATE) < CAST(NgayBatDau AS DATE) THEN N'Sắp diễn ra'
+                          WHEN CAST(GETDATE() AS DATE) > CAST(NgayKetThuc AS DATE) THEN N'Đã hết hạn'
+                          ELSE N'Đang áp dụng' END AS TinhTrang
+              FROM KhuyenMai
+              WHERE TrangThai = 1
+                AND (CAST(MaKhuyenMai AS VARCHAR(10)) LIKE @k OR TenKhuyenMai LIKE @k)
+              ORDER BY MaKhuyenMai",
+                DbHelper.Param("@k", "%" + ThoatLike(tuKhoa) + "%"));
+        }
+
+        /// <summary>Tạo khuyến mãi, trả về MaKhuyenMai mới.</summary>
+        public static int Them(string ten, string moTa, string loaiGiam, decimal giaTri,
+                               DateTime ngayBatDau, DateTime ngayKetThuc, string dieuKien)
+        {
+            object id = DbHelper.ExecuteScalar(
+                @"INSERT INTO KhuyenMai (TenKhuyenMai, MoTa, LoaiGiam, GiaTriGiam, NgayBatDau, NgayKetThuc, DieuKienApDung)
+              VALUES (@ten, @mt, @loai, @gt, @bd, @kt, @dk);
+              SELECT CAST(SCOPE_IDENTITY() AS INT);",
+                DbHelper.Param("@ten", ten), DbHelper.Param("@mt", moTa),
+                DbHelper.Param("@loai", loaiGiam), DbHelper.Param("@gt", giaTri),
+                DbHelper.Param("@bd", ngayBatDau), DbHelper.Param("@kt", ngayKetThuc),
+                DbHelper.Param("@dk", dieuKien));
+            return Convert.ToInt32(id);
+        }
+
+        public static int Sua(int ma, string ten, string moTa, string loaiGiam, decimal giaTri,
+                              DateTime ngayBatDau, DateTime ngayKetThuc, string dieuKien)
+        {
+            return DbHelper.ExecuteNonQuery(
+                @"UPDATE KhuyenMai
+              SET TenKhuyenMai = @ten, MoTa = @mt, LoaiGiam = @loai, GiaTriGiam = @gt,
+                  NgayBatDau = @bd, NgayKetThuc = @kt, DieuKienApDung = @dk
+              WHERE MaKhuyenMai = @id",
+                DbHelper.Param("@ten", ten), DbHelper.Param("@mt", moTa),
+                DbHelper.Param("@loai", loaiGiam), DbHelper.Param("@gt", giaTri),
+                DbHelper.Param("@bd", ngayBatDau), DbHelper.Param("@kt", ngayKetThuc),
+                DbHelper.Param("@dk", dieuKien), DbHelper.Param("@id", ma));
+        }
+
+        /// <summary>Xóa hẳn. Nếu đã dùng trong hóa đơn sẽ ném SqlException số 547 (khóa ngoại).</summary>
+        public static int Xoa(int ma)
+        {
+            return DbHelper.ExecuteNonQuery("DELETE FROM KhuyenMai WHERE MaKhuyenMai = @id",
+                DbHelper.Param("@id", ma));
+        }
+
+        /// <summary>Ngừng áp dụng (dùng khi không xóa hẳn được).</summary>
+        public static int NgungApDung(int ma)
+        {
+            return DbHelper.ExecuteNonQuery("UPDATE KhuyenMai SET TrangThai = 0 WHERE MaKhuyenMai = @id",
+                DbHelper.Param("@id", ma));
+        }
+
+        /// <summary>Tên đã có ở khuyến mãi khác (chưa ngừng) chưa. loaiTruMa = -1 khi thêm mới.</summary>
+        public static bool TrungTen(string ten, int loaiTruMa)
+        {
+            object o = DbHelper.ExecuteScalar(
+                @"SELECT COUNT(*) FROM KhuyenMai
+              WHERE TrangThai = 1 AND TenKhuyenMai = @t AND MaKhuyenMai <> @id",
+                DbHelper.Param("@t", ten), DbHelper.Param("@id", loaiTruMa));
+            return Convert.ToInt32(o) > 0;
+        }
+
+        public static int DemHoaDon(int ma)
+        {
+            object o = DbHelper.ExecuteScalar(
+                "SELECT COUNT(*) FROM HoaDon WHERE MaKhuyenMai = @id", DbHelper.Param("@id", ma));
+            return Convert.ToInt32(o);
+        }
+
+        /// <summary>Giá sản phẩm đang bán nếu áp dụng riêng khuyến mãi này (cùng công thức với bán hàng).</summary>
+        public static DataTable SanPhamApDung(int ma)
+        {
+            return DbHelper.ExecuteQuery(
+                @"SELECT s.MaSP, s.TenSP, s.GiaBan AS GiaGoc, g.TienGiam, s.GiaBan - g.TienGiam AS GiaSauGiam
+              FROM KhuyenMai k
+              CROSS JOIN SanPham s
+              CROSS APPLY (SELECT CAST(CASE WHEN k.LoaiGiam = N'PhanTram' THEN s.GiaBan * k.GiaTriGiam / 100
+                                            WHEN k.GiaTriGiam > s.GiaBan THEN s.GiaBan
+                                            ELSE k.GiaTriGiam END AS DECIMAL(18,2)) AS TienGiam) g
+              WHERE k.MaKhuyenMai = @id AND s.TrangThai = 1
+              ORDER BY s.MaSP",
+                DbHelper.Param("@id", ma));
         }
     }
 
