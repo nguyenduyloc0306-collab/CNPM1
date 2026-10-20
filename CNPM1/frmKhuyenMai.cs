@@ -22,7 +22,7 @@ namespace CNPM1
         private int _maKM = -1;                // mã khuyến mãi của dòng đang chọn
         private string _tenKM = "";
 
-        // Các ô do code tự tạo
+        // Các ô nhập (dùng lại ô sẵn có trong Designer, thêm vài ô mới)
         private TextBox txtMa, txtTen, txtMuc, txtDieuKien, txtMoTa;
         private DateTimePicker dtpBatDau, dtpKetThuc;
 
@@ -59,30 +59,28 @@ namespace CNPM1
             }
         }
 
-        private Label TaoNhan(string chu, int y)
+        // Các hàm sự kiện rỗng mà Designer đã gắn sẵn (phải giữ để build được)
+        private void textBox6_TextChanged(object sender, EventArgs e) { }
+        private void textBox4_TextChanged(object sender, EventArgs e) { }
+        private void label7_Click(object sender, EventArgs e) { }
+        private void label5_Click(object sender, EventArgs e) { }
+
+        private Label TaoNhan(string chu, int x, int y)
         {
             Label l = new Label();
             l.AutoSize = true;
-            l.Font = new Font("Microsoft Sans Serif", 10F);
+            l.Font = label8.Font;
+            l.ForeColor = label8.ForeColor;
             l.Text = chu;
-            l.Location = new Point(17, y);
+            l.Location = new Point(x, y);
             panel1.Controls.Add(l);
             return l;
-        }
-
-        private T TaoO<T>(T o, int y) where T : Control
-        {
-            o.Font = new Font("Microsoft Sans Serif", 12F);
-            o.Location = new Point(21, y);
-            o.Width = 292;
-            panel1.Controls.Add(o);
-            return o;
         }
 
         private DateTimePicker TaoNgay(int x, int y)
         {
             DateTimePicker d = new DateTimePicker();
-            d.Font = new Font("Microsoft Sans Serif", 11F);
+            d.Font = textBox6.Font;
             d.Format = DateTimePickerFormat.Custom;
             d.CustomFormat = "dd/MM/yyyy";
             d.Location = new Point(x, y);
@@ -91,54 +89,60 @@ namespace CNPM1
             return d;
         }
 
-        // Dựng lại khung bên phải cho khuyến mãi (bỏ các ô của sản phẩm)
+        // Sắp xếp lại khung bên phải cho khuyến mãi (mọi ô nằm phía trên nút Lưu, y < 450)
         private void DungGiaoDien()
         {
             label1.Text = "Nhập tên hoặc mã khuyến mãi";
 
-            Control[] cu = { label5, label6, label7, label8, textBox4, textBox5, textBox6, textBox7 };
-            foreach (Control c in cu)
-            {
-                panel1.Controls.Remove(c);
-                c.Dispose();
-            }
-
-            TaoNhan("Mã khuyến mãi", 52);
-            txtMa = TaoO(new TextBox(), 71);
+            // Dùng lại các nhãn và ô sẵn có
+            label5.Text = "Mã khuyến mãi";
+            label5.Location = new Point(17, 60);
+            txtMa = textBox4;
+            txtMa.Location = new Point(21, 84);
             txtMa.ReadOnly = true;                       // mã do SQL tự tăng
 
-            TaoNhan("Tên khuyến mãi", 104);
-            txtTen = TaoO(new TextBox(), 123);
+            label6.Text = "Tên khuyến mãi";
+            label6.Location = new Point(17, 116);
+            txtTen = textBox5;
+            txtTen.Location = new Point(21, 140);
             txtTen.MaxLength = 150;
 
-            TaoNhan("Mức giảm (ví dụ 10% hoặc 50000 đồng)", 156);
-            txtMuc = TaoO(new TextBox(), 175);
+            label7.Text = "Mức giảm (10% hoặc 50000đ)";
+            label7.Location = new Point(17, 172);
+            txtMuc = textBox6;
+            txtMuc.Location = new Point(21, 196);
 
-            TaoNhan("Từ ngày", 208);
-            TaoNhan("Đến ngày", 208).Left = 173;
-            dtpBatDau = TaoNgay(21, 227);
-            dtpKetThuc = TaoNgay(173, 227);
+            // Hàng ngày: Từ ngày | Đến ngày
+            TaoNhan("Từ ngày", 17, 228);
+            TaoNhan("Đến ngày", 173, 228);
+            dtpBatDau = TaoNgay(21, 252);
+            dtpKetThuc = TaoNgay(173, 252);
 
-            TaoNhan("Điều kiện áp dụng (chỉ là ghi chú)", 260);
-            txtDieuKien = TaoO(new TextBox(), 279);
+            label8.Text = "Điều kiện áp dụng (ghi chú)";
+            label8.Location = new Point(17, 284);
+            txtDieuKien = textBox7;
+            txtDieuKien.Location = new Point(21, 308);
             txtDieuKien.MaxLength = 255;
 
-            TaoNhan("Mô tả", 312);
-            txtMoTa = TaoO(new TextBox(), 331);
+            TaoNhan("Mô tả", 17, 340);
+            txtMoTa = new TextBox();
+            txtMoTa.Font = textBox7.Font;
+            txtMoTa.BorderStyle = textBox7.BorderStyle;
             txtMoTa.Multiline = true;
-            txtMoTa.Height = 70;
             txtMoTa.ScrollBars = ScrollBars.Vertical;
             txtMoTa.MaxLength = 500;
+            txtMoTa.Location = new Point(21, 364);
+            txtMoTa.Size = new Size(292, 44);
+            panel1.Controls.Add(txtMoTa);
 
             Label ghiChu = new Label();
             ghiChu.AutoSize = false;
-            ghiChu.Font = new Font("Microsoft Sans Serif", 9F);
+            ghiChu.Font = new Font("Segoe UI", 8.25F);
             ghiChu.ForeColor = Color.DimGray;
-            ghiChu.Location = new Point(17, 410);
-            ghiChu.Size = new Size(305, 100);
-            ghiChu.Text = "Khuyến mãi áp dụng cho mọi sản phẩm trong thời gian hiệu lực. "
-                        + "Nếu có nhiều khuyến mãi cùng lúc, mỗi sản phẩm được giảm theo mức cao nhất "
-                        + "(không cộng dồn).\nNhấp đúp vào một dòng để xem giá từng sản phẩm sau khi giảm.";
+            ghiChu.Location = new Point(17, 412);
+            ghiChu.Size = new Size(305, 34);
+            ghiChu.Text = "Áp dụng cho mọi sản phẩm; nhiều khuyến mãi cùng lúc lấy mức cao nhất. "
+                        + "Nhấp đúp vào dòng để xem giá sau giảm.";
             panel1.Controls.Add(ghiChu);
         }
 
@@ -186,7 +190,7 @@ namespace CNPM1
         private void DatCheDo(bool them)
         {
             _dangThem = them;
-            button2.Text = them ? "Xác nhận thêm" : "Thêm";
+            button2.Text = them ? "Xác nhận thêm" : "+ Thêm";
             button4.Text = them ? "Hủy" : "Xóa";
         }
 
