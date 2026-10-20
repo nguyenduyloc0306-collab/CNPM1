@@ -212,15 +212,62 @@ namespace CNPM1
 		// 8. Xác nhận phiếu nhập (Đổi trạng thái từ 'ChoXacNhan' sang 'DaXacNhan')
 		public bool XacNhanPhieuNhap(int maPhieuNhap)
 		{
-			string query = "UPDATE PhieuNhapHang SET TrangThai = N'DaXacNhan' WHERE MaPhieuNhap = @MaPhieu";
-
 			using (SqlConnection conn = new SqlConnection(connectionString))
 			{
-				using (SqlCommand cmd = new SqlCommand(query, conn))
+				conn.Open();
+				SqlTransaction transaction = conn.BeginTransaction();
+
+				try
 				{
-					cmd.Parameters.AddWithValue("@MaPhieu", maPhieuNhap);
-					conn.Open();
-					return cmd.ExecuteNonQuery() > 0;
+					// Bước 1: Cập nhật trạng thái phiếu nhập thành 'DaXacNhan' (hoặc 'Đã xác nhận' tùy theo thiết kế CSDL của bạn)
+					string queryUpdatePhieu = @"UPDATE PhieuNhapHang 
+                                        SET TrangThai = N'DaXacNhan' 
+                                        WHERE MaPhieuNhap = @MaPhieu";
+					using (SqlCommand cmd1 = new SqlCommand(queryUpdatePhieu, conn, transaction))
+					{
+						cmd1.Parameters.AddWithValue("@MaPhieu", maPhieuNhap);
+						cmd1.ExecuteNonQuery();
+					}
+
+					// Bước 2: Lấy danh sách chi tiết sản phẩm của phiếu này để cộng dồn vào tồn kho bảng SanPham
+					string queryGetChiTiet = "SELECT MaSP, SoLuong FROM ChiTietPhieuNhap WHERE MaPhieuNhap = @MaPhieu";
+					DataTable dtChiTiet = new DataTable();
+					using (SqlCommand cmdGet = new SqlCommand(queryGetChiTiet, conn, transaction))
+					{
+						cmdGet.Parameters.AddWithValue("@MaPhieu", maPhieuNhap);
+						using (SqlDataAdapter da = new SqlDataAdapter(cmdGet))
+						{
+							da.Fill(dtChiTiet);
+						}
+					}
+
+					// Bước 3: Duyệt qua từng sản phẩm và cộng số lượng vào kho
+					foreach (DataRow row in dtChiTiet.Rows)
+					{
+						int maSP = Convert.ToInt32(row["MaSP"]);
+						int soLuongNhap = Convert.ToInt32(row["SoLuong"]);
+
+						// Lưu ý: Bạn kiểm tra lại tên cột số lượng tồn kho trong bảng SanPham của bạn 
+						// (Ví dụ ở đây mình giả sử cột đó tên là SoLuongTon hoặc SoLuong)
+						string queryUpdateKho = @"UPDATE SanPham 
+                                          SET SoLuongTon = SoLuongTon + @SoLuongNhap 
+                                          WHERE MaSP = @MaSP";
+						using (SqlCommand cmdKho = new SqlCommand(queryUpdateKho, conn, transaction))
+						{
+							cmdKho.Parameters.AddWithValue("@SoLuongNhap", soLuongNhap);
+							cmdKho.Parameters.AddWithValue("@MaSP", maSP);
+							cmdKho.ExecuteNonQuery();
+						}
+					}
+
+					transaction.Commit();
+					return true;
+				}
+				catch (Exception ex)
+				{
+					transaction.Rollback();
+					// Bạn có thể log hoặc debug lỗi ex ở đây nếu cần
+					return false;
 				}
 			}
 		}
