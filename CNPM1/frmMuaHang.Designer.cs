@@ -398,6 +398,7 @@
 			this.Controls.Add(this.panel3);
 			this.Controls.Add(this.panel1);
 			this.Name = "frmMuaHang";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Mua hàng";
 			this.Load += new System.EventHandler(this.frmMuaHang_Load);
 			this.panel1.ResumeLayout(false);

@@ -38,7 +38,6 @@ namespace CNPM1
 			this.button6 = new System.Windows.Forms.Button();
 			this.button7 = new System.Windows.Forms.Button();
 			this.button8 = new System.Windows.Forms.Button();
-			this.button9 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label2
@@ -125,7 +124,7 @@ namespace CNPM1
 			this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
 			this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(18)))), ((int)(((byte)(60)))));
-			this.button5.Location = new System.Drawing.Point(195, 429);
+			this.button5.Location = new System.Drawing.Point(337, 420);
 			this.button5.Name = "button5";
 			this.button5.Size = new System.Drawing.Size(200, 100);
 			this.button5.TabIndex = 7;
@@ -155,7 +154,7 @@ namespace CNPM1
 			this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
 			this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(120)))), ((int)(((byte)(87)))));
-			this.button6.Location = new System.Drawing.Point(337, 313);
+			this.button6.Location = new System.Drawing.Point(337, 303);
 			this.button6.Name = "button6";
 			this.button6.Size = new System.Drawing.Size(200, 100);
 			this.button6.TabIndex = 9;
@@ -172,7 +171,7 @@ namespace CNPM1
 			this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
 			this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(24)))), ((int)(((byte)(93)))));
-			this.button7.Location = new System.Drawing.Point(54, 313);
+			this.button7.Location = new System.Drawing.Point(54, 303);
 			this.button7.Name = "button7";
 			this.button7.Size = new System.Drawing.Size(200, 100);
 			this.button7.TabIndex = 10;
@@ -189,7 +188,7 @@ namespace CNPM1
 			this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
 			this.button8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(105)))), ((int)(((byte)(161)))));
-			this.button8.Location = new System.Drawing.Point(617, 313);
+			this.button8.Location = new System.Drawing.Point(617, 303);
 			this.button8.Name = "button8";
 			this.button8.Size = new System.Drawing.Size(200, 100);
 			this.button8.TabIndex = 11;
@@ -197,30 +196,12 @@ namespace CNPM1
 			this.button8.UseVisualStyleBackColor = false;
 			this.button8.Click += new System.EventHandler(this.button8_Click);
 			// 
-			// button9
-			// 
-			this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-			this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.button9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(213)))), ((int)(((byte)(225)))));
-			this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.button9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.button9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(65)))), ((int)(((byte)(85)))));
-			this.button9.Location = new System.Drawing.Point(484, 429);
-			this.button9.Name = "button9";
-			this.button9.Size = new System.Drawing.Size(200, 100);
-			this.button9.TabIndex = 12;
-			this.button9.Text = "📊\r\nThống kê - Báo cáo";
-			this.button9.UseVisualStyleBackColor = false;
-			this.button9.Click += new System.EventHandler(this.button9_Click);
-			// 
 			// frmManHinhChinhQuanLy
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.LightSteelBlue;
 			this.ClientSize = new System.Drawing.Size(874, 541);
-			this.Controls.Add(this.button9);
 			this.Controls.Add(this.button8);
 			this.Controls.Add(this.button7);
 			this.Controls.Add(this.button6);
@@ -254,6 +235,5 @@ namespace CNPM1
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
     }
 }

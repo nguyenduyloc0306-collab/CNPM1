@@ -84,12 +84,5 @@ namespace CNPM1
             frmNhapHang f = new frmNhapHang();
             f.ShowDialog();
         }
-
-        // Thống kê - báo cáo
-        private void button9_Click(object sender, EventArgs e)
-        {
-            frmBaocaoThongke f = new frmBaocaoThongke();
-            f.ShowDialog();
-        }
     }
 }

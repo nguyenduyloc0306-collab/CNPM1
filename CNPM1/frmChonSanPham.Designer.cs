@@ -273,7 +273,7 @@
 			this.MinimizeBox = false;
 			this.Name = "frmChonSanPham";
 			this.ShowInTaskbar = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Chọn sản phẩm";
 			this.Load += new System.EventHandler(this.frmChonSanPham_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();

@@ -26,5 +26,10 @@ namespace CNPM1
             textBox6.Text = email;
 
         }
-    }
+
+		private void label1_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

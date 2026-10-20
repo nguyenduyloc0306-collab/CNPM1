@@ -31,6 +31,7 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.lblTieuDe = new System.Windows.Forms.Label();
 			this.dgvGioHang = new System.Windows.Forms.DataGridView();
 			this.colMaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,7 +67,6 @@
 			// 
 			this.dgvGioHang.AllowUserToAddRows = false;
 			this.dgvGioHang.AllowUserToDeleteRows = false;
-			this.dgvGioHang.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.dgvGioHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvGioHang.BackgroundColor = System.Drawing.Color.White;
 			this.dgvGioHang.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -99,6 +99,7 @@
 			this.dgvGioHang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
 			this.dgvGioHang.Location = new System.Drawing.Point(20, 65);
 			this.dgvGioHang.Name = "dgvGioHang";
+			this.dgvGioHang.ReadOnly = true;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
 			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -108,6 +109,12 @@
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.dgvGioHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this.dgvGioHang.RowHeadersVisible = false;
+			dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(231)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+			this.dgvGioHang.RowsDefaultCellStyle = dataGridViewCellStyle4;
 			this.dgvGioHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvGioHang.Size = new System.Drawing.Size(860, 395);
 			this.dgvGioHang.TabIndex = 1;
@@ -119,6 +126,7 @@
 			this.colMaSP.DataPropertyName = "MaSP";
 			this.colMaSP.HeaderText = "Mã SP";
 			this.colMaSP.Name = "colMaSP";
+			this.colMaSP.ReadOnly = true;
 			this.colMaSP.Visible = false;
 			// 
 			// colTenSP
@@ -126,24 +134,28 @@
 			this.colTenSP.DataPropertyName = "TenSP";
 			this.colTenSP.HeaderText = "Tên sản phẩm";
 			this.colTenSP.Name = "colTenSP";
+			this.colTenSP.ReadOnly = true;
 			// 
 			// colGiaBan
 			// 
 			this.colGiaBan.DataPropertyName = "GiaBan";
 			this.colGiaBan.HeaderText = "Đơn giá";
 			this.colGiaBan.Name = "colGiaBan";
+			this.colGiaBan.ReadOnly = true;
 			// 
 			// colSoLuong
 			// 
 			this.colSoLuong.DataPropertyName = "SoLuong";
 			this.colSoLuong.HeaderText = "Số lượng";
 			this.colSoLuong.Name = "colSoLuong";
+			this.colSoLuong.ReadOnly = true;
 			// 
 			// colThanhTien
 			// 
 			this.colThanhTien.DataPropertyName = "ThanhTien";
 			this.colThanhTien.HeaderText = "Thành tiền";
 			this.colThanhTien.Name = "colThanhTien";
+			this.colThanhTien.ReadOnly = true;
 			// 
 			// panelDuoi
 			// 
@@ -266,7 +278,7 @@
 			this.Controls.Add(this.lblTieuDe);
 			this.ForeColor = System.Drawing.Color.White;
 			this.Name = "frmGioHang";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Giỏ hàng";
 			this.Load += new System.EventHandler(this.frmGioHang_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dgvGioHang)).EndInit();
